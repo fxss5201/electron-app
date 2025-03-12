@@ -41,77 +41,18 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           path: artifacts
-
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.APP_GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref_name }}
-          release_name: Release ${{ github.ref_name }}
-          draft: false
-          prerelease: false
       
       - name: Display structure of downloaded files
         run: ls -R
 
-      - name: Upload Release Assets (deb)
-        uses: actions/upload-release-asset@v1
+      - name: Release
+        uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.APP_GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./artifacts/electron-app-ubuntu-latest/deb/x64
-          asset_name: electron-app_${{ github.ref_name }}_amd64.deb
-          asset_content_type: application/zip
-
-      - name: Upload Release Assets (rpm)
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.APP_GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./artifacts/electron-app-ubuntu-latest/rpm/x64
-          asset_name: electron-app-${{ github.ref_name }}-1.x86_64.rpm
-          asset_content_type: application/zip
-
-      - name: Upload Release Assets (Windows Setup)
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.APP_GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./artifacts/electron-app-windows-latest/squirrel.windows/x64
-          asset_name: electron-app-${{ github.ref_name }} Setup.exe
-          asset_content_type: application/zip
-
-      - name: Upload Release Assets (Windows full)
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.APP_GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./artifacts/electron-app-windows-latest/squirrel.windows/x64
-          asset_name: electron_app-${{ github.ref_name }}-full.nupkg
-          asset_content_type: application/zip
-
-      - name: Upload Release Assets (Windows RELEASES)
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.APP_GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./artifacts/electron-app-windows-latest/squirrel.windows/x64
-          asset_name: RELEASES
-          asset_content_type: application/zip
-
-      - name: Upload Release Assets (macOS)
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.APP_GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./artifacts/electron-app-macos-latest/zip/darwin/arm64
-          asset_name: electron-app-darwin-arm64-${{ github.ref_name }}.zip
-          asset_content_type: application/zip
+          tag_name: ${{ github.ref_name }}
+          name: Release ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+          files: |
+            artifacts/***/*
