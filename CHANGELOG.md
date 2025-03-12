@@ -2,7 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
-## 0.0.1 (2025-03-12)
+## [0.0.2](https://github.com/fxss5201/electron-app/compare/v0.0.1...v0.0.2) (2025-03-12)
+
+
+### Features
+
+* 修改配置 ([3b4f362](https://github.com/fxss5201/electron-app/commit/3b4f362ec63e001fdfe8cb1432862b452762e0f3))
+
+## [0.0.1](https://github.com/fxss5201/electron-app/compare/55f9fbb5d5bc0650a31bab4e1c50369ec0c52835...v0.0.1) (2025-03-12)
 
 
 ### Features
