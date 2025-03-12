@@ -1,0 +1,20 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
+
+## 0.0.1 (2025-03-12)
+
+
+### Features
+
+* 创建项目 ([55f9fbb](https://github.com/fxss5201/electron-app/commit/55f9fbb5d5bc0650a31bab4e1c50369ec0c52835))
+* 调整 action 配置 ([3ee1c99](https://github.com/fxss5201/electron-app/commit/3ee1c991b2b376d846b40e26d373567cc4229862))
+* 调整 action 配置 ([2c447d9](https://github.com/fxss5201/electron-app/commit/2c447d9b98f9cbcdb73878c00a5d59c63085440e))
+* 调整配置 ([40e879c](https://github.com/fxss5201/electron-app/commit/40e879c48589b6488848df46a0c91029c7d9b223))
+* 调整配置 ([7313db8](https://github.com/fxss5201/electron-app/commit/7313db8e6cf743441df77aa91e6f5785ee709813))
+* 调整配置 ([2bd1fb2](https://github.com/fxss5201/electron-app/commit/2bd1fb26b40dec5cbaad45683f568a3d1e60d610))
+* 调整配置 ([8bbabb5](https://github.com/fxss5201/electron-app/commit/8bbabb5cbcb5490a579947fdb4f78b9133bfe2ec))
+* 基本配置 ([0f3b976](https://github.com/fxss5201/electron-app/commit/0f3b97601cd6031d95c403d2b01c4a48229dff1b))
+* 配置 github action ([b9e5592](https://github.com/fxss5201/electron-app/commit/b9e5592614552278110ea52a3eb25ef293c267c1))
+* 修改配置 ([f0e7812](https://github.com/fxss5201/electron-app/commit/f0e78121ffe5967cb319748eac5044801831cf83))
+* 修改配置 ([dd324e8](https://github.com/fxss5201/electron-app/commit/dd324e8c2f18a99f8ad46085dee55373ed82f586))
