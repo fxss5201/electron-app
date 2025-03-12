@@ -41,17 +41,6 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           path: artifacts
-
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.APP_GITHUB_TOKEN }}
-        with:
-          tag_name: v${{ github.run_number }}
-          release_name: Release v${{ github.run_number }}
-          draft: false
-          prerelease: false
       
       - name: Display structure of downloaded files
         run: ls -R
@@ -63,11 +52,24 @@ jobs:
           sudo apt update
           sudo apt install gh
 
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.APP_GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ github.run_number }}
+          release_name: Release v${{ github.run_number }}
+          draft: false
+          prerelease: false
+
       - name: Upload Release Assets
         run: |
           for file in artifacts/*; do
             if [ -f "$file" ]; then
+              upload_url: ${{ steps.create_release.outputs.upload_url }}
               asset_name=$(basename "$file")
+              asset_content_type: application/zip
               gh release upload ${{ github.ref_name }} "$file" --clobber
             fi
           done
