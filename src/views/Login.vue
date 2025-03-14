@@ -32,7 +32,7 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref } from 'vue'
+import { reactive, ref, toRaw } from 'vue'
 import type { FormInstance, FormRules } from 'element-plus'
 
 interface RuleForm {
@@ -78,7 +78,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
 }
 
 function handleLogin() {
-  window.ipcRenderer.send('login', form.account, form.password)
+  window.ipcRenderer.send('login', toRaw(form))
 }
 </script>
 

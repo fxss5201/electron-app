@@ -26,7 +26,7 @@ function createLoginWindow () {
     } as RouterMessage)
   })
 
-  ipcMain.once('login', (event, ...form) => {
+  ipcMain.once('login', (event, form) => {
     console.log('form', form)
     loginWindow.close()
     createMainWindow()
