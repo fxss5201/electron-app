@@ -12,7 +12,6 @@ function createLoginWindow () {
     center: true,
     closable: true,
     movable: true,
-    frame: false,
   })
 
   loginWindow.setMenu(null)

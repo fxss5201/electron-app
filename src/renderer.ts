@@ -11,6 +11,6 @@ const app = createApp(App);
 app.use(router);
 app.mount('#app');
 
-window.ipcRenderer.on('router', (_event, message: RouterMessage) => {
+window.electron.ipcRenderer.on('router', (_event, message: RouterMessage) => {
   router[message.type](message.router)
 })

@@ -78,7 +78,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
 }
 
 function handleLogin() {
-  window.ipcRenderer.send('login', toRaw(form))
+  window.electron.ipcRenderer.send('login', toRaw(form))
 }
 </script>
 
