@@ -1,6 +1,9 @@
-import { ipcMain } from 'electron';
+import { ipcMain, Menu } from 'electron';
 import createWindow from './createWindow';
 import type { RouterMessage } from './../../types/routerTypes';
+import createMainMenu from './../menu/mainMenu';
+import { addIpcMainHandleFn, addIpcMainOnFn } from './../ipcMain/index.ts';
+import registryShortcut from './../plugins/registryShortcut';
 
 function createMainWindow () {
   const mainWindow = createWindow({
@@ -17,11 +20,19 @@ function createMainWindow () {
         path: '/home'
       }
     } as RouterMessage)
+
+    registryShortcut();
   })
 
   ipcMain.once('open-window', () => {
     createMainWindow();
   })
+
+  addIpcMainHandleFn();
+  addIpcMainOnFn();
+
+  const mainMenu = createMainMenu(mainWindow);
+  Menu.setApplicationMenu(Menu.buildFromTemplate(mainMenu));
 
   return mainWindow
 }

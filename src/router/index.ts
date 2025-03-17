@@ -14,7 +14,23 @@ export const routes = [
   {
     path: '/home',
     name: 'Home',
-    component: () => import('../views/Home.vue')
+    component: () => import('../views/Home.vue'),
+    meta: {
+      title: '首页'
+    }
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: () => import('../views/NotFound.vue')
+  },
+  {
+    path: '/darkMode',
+    name: 'DarkMode',
+    component: () => import('../views/example/DarkMode.vue'),
+    meta: {
+      title: '暗黑模式'
+    }
   }
 ]
 

@@ -34,6 +34,7 @@
 <script lang="ts" setup>
 import { reactive, ref, toRaw } from 'vue'
 import type { FormInstance, FormRules } from 'element-plus'
+import { onKeyStroke } from '@vueuse/core'
 
 interface RuleForm {
   account: string,
@@ -80,16 +81,20 @@ const submitForm = (formEl: FormInstance | undefined) => {
 function handleLogin() {
   window.electron.ipcRenderer.send('login', toRaw(form))
 }
+
+onKeyStroke('Enter', () => {
+  submitForm(formRef.value)  
+})
 </script>
 
 <style lang="scss" scoped>
 .logo-page {
   width: 100%;
-  padding: 0 24px;
+  padding: 0 48px;
 }
 .logo-icon-box {
   width: 100%;
-  margin: 30px 0 24px;
+  margin: 24px 0;
   display: flex;
   justify-content: center;
 

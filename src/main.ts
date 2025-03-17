@@ -3,8 +3,10 @@ import path from 'node:path';
 import started from 'electron-squirrel-startup';
 import log from 'electron-log/main';
 import updateApp from './electron/plugins/updateApp';
-import registryShortcut from './electron/plugins/registryShortcut';
 import createLoginWindow from './electron/windows/loginWindow';
+import createMainWindow from './electron/windows/mainWindow';
+import store from './electron/stores';
+import './electron/stores/addStore';
 
 log.initialize();
 log.info('Log from the main process');
@@ -16,18 +18,25 @@ if (started) {
   app.quit();
 }
 
+function createWindow () {
+  if (store.get('user').account) {
+    createMainWindow();
+  } else {
+    createLoginWindow();
+  }
+}
+
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
-  createLoginWindow();
-  registryShortcut();
+  createWindow();
 
   app.on('activate', () => {
     // On OS X it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
     if (BrowserWindow.getAllWindows().length === 0) {
-      createLoginWindow();
+      createWindow();
     }
   });
 })

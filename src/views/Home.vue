@@ -1,7 +1,7 @@
 <template>
   <div class="page-box">
-    <h1>Home</h1>
-    <p>Welcome to the home page!</p>
+    <h1>electron-app</h1>
+    <p>electron-app 使用 vite + electron + Vue3 + electron-forge 等技术，可在菜单中查看不同的示例。</p>
   </div>
 </template>
 
