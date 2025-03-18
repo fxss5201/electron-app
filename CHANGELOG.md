@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.0.6](https://github.com/fxss5201/electron-app/compare/v0.0.5...v0.0.6) (2025-03-18)
+
+
+### Features
+
+* 调整进程间通信 ([5f634e2](https://github.com/fxss5201/electron-app/commit/5f634e2df564bd2ae4a05d733435a27c8247bf7a))
+* 添加进度条和Tray ([186d9dd](https://github.com/fxss5201/electron-app/commit/186d9dd231366852442e874c3b225f02ff9da5c7))
+* 增加菜单及暗黑模式 ([0da4f15](https://github.com/fxss5201/electron-app/commit/0da4f156f4aa5af10894ad6ff7bf6fca27d142d6))
+* window.ipcRenderer.send 负荷为对象 ([587bfd1](https://github.com/fxss5201/electron-app/commit/587bfd1e1ab22c0244899580e99767a1bad548fe))
+
 ## [0.0.5](https://github.com/fxss5201/electron-app/compare/v0.0.4...v0.0.5) (2025-03-13)
 
 
