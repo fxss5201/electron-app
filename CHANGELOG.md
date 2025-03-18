@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.0.7](https://github.com/fxss5201/electron-app/compare/v0.0.6...v0.0.7) (2025-03-18)
+
+
+### Bug Fixes
+
+* 修复 nativeImage.createFromPath 路径问题 ([0591d3b](https://github.com/fxss5201/electron-app/commit/0591d3b60079a36312ab5e4f212398582f04cec2))
+
 ## [0.0.6](https://github.com/fxss5201/electron-app/compare/v0.0.5...v0.0.6) (2025-03-18)
 
 
