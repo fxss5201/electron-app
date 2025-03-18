@@ -1,19 +1,22 @@
-import { BrowserWindow } from 'electron';
+import { BrowserWindow, app } from 'electron';
 import path from 'node:path';
 import type { BaseWindowConstructorOptions, BrowserWindowConstructorOptions } from 'electron/main';
 
 function createWindow (config: BaseWindowConstructorOptions) {
   const defaultConfig: BrowserWindowConstructorOptions = {
     show: false,
-    icon: path.join(__dirname, './icons/icon.png'),
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
     },
   }
 
-  // if (process.platform === 'linux') {
-  //   defaultConfig.icon = path.join(__dirname, './icons/icon.png')
-  // }
+  if (process.platform === 'linux') {
+    defaultConfig.icon = path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/icons/icon.png`)
+  }
+
+  if (!app.isPackaged) {
+    defaultConfig.icon = path.join(__dirname, './icons/icon.png')
+  }
 
   const configs: BrowserWindowConstructorOptions = { ...defaultConfig, ...config  }
 
