@@ -31,6 +31,14 @@ export const routes = [
     meta: {
       title: '暗黑模式'
     }
+  },
+  {
+    path: '/progressBar',
+    name: 'ProgressBar',
+    component: () => import('../views/example/ProgressBar.vue'),
+    meta: {
+      title: '进度条'
+    }
   }
 ]
 

@@ -4,6 +4,7 @@ import type { RouterMessage } from './../../types/routerTypes';
 import createMainMenu from './../menu/mainMenu';
 import { addIpcMainHandleFn, addIpcMainOnFn } from './../ipcMain/index.ts';
 import registryShortcut from './../plugins/registryShortcut';
+import createTray from './../tray';
 
 function createMainWindow () {
   const mainWindow = createWindow({
@@ -28,8 +29,9 @@ function createMainWindow () {
     createMainWindow();
   })
 
+  createTray(mainWindow);
   addIpcMainHandleFn();
-  addIpcMainOnFn();
+  addIpcMainOnFn(mainWindow);
 
   const mainMenu = createMainMenu(mainWindow);
   Menu.setApplicationMenu(Menu.buildFromTemplate(mainMenu));

@@ -1,4 +1,4 @@
-const isMac = process.platform === 'darwin'
+import { isMac } from './../utils/index';
 
 function createMainMenu (mainWindow: Electron.CrossProcessExports.BrowserWindow): Array<(Electron.MenuItemConstructorOptions) | (Electron.MenuItem)> {
   return [
@@ -28,6 +28,17 @@ function createMainMenu (mainWindow: Electron.CrossProcessExports.BrowserWindow)
               type:'replace',
               router: {
                 path: '/darkMode'
+              }
+            })
+          }
+        },
+        {
+          label: '进度条',
+          click: () => {
+            mainWindow.webContents.send('router', {
+              type:'replace',
+              router: {
+                path: '/progressBar'
               }
             })
           }
