@@ -18,6 +18,7 @@ function createMainMenu (mainWindow: Electron.CrossProcessExports.BrowserWindow)
             })
           }
         },
+        { type: 'separator' },
         {
           label: '退出登录',
           click: () => {
@@ -55,7 +56,18 @@ function createMainMenu (mainWindow: Electron.CrossProcessExports.BrowserWindow)
               }
             })
           }
-        }, 
+        },
+        {
+          label: '通知',
+          click: () => {
+            mainWindow.webContents.send('router', {
+              type:'replace',
+              router: {
+                path: '/notifications'
+              }
+            })
+          }
+        }
       ]
     },
     {

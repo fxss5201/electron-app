@@ -39,6 +39,14 @@ export const routes = [
     meta: {
       title: '进度条'
     }
+  },
+  {
+    path: '/notifications',
+    name: 'Notifications',
+    component: () => import('../views/example/Notifications.vue'),
+    meta: {
+      title: '通知' 
+    }
   }
 ]
 
