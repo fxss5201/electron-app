@@ -3,5 +3,5 @@ export interface StoreType {
     account: string;
     password: string;
   };
-  theme: 'system' | 'light' | 'dark';
+  theme?: 'system' | 'light' | 'dark';
 }

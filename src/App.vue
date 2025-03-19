@@ -22,8 +22,7 @@ import { RouterView, useRouter } from 'vue-router'
 import { ElConfigProvider } from 'element-plus';
 import zhCn from 'element-plus/es/locale/lang/zh-cn';
 import 'dayjs/locale/zh-cn';
-import logoIcon from '@/assets/icons/icon.png';
-import { useFavicon, useOnline, useDark } from '@vueuse/core';
+import { useOnline, useDark } from '@vueuse/core';
 import { storeToRefs } from 'pinia';
 import { useKeepAliveStore } from '@/stores/KeepAliveStore';
 import { useNProgress } from '@vueuse/integrations/useNProgress';
@@ -31,7 +30,6 @@ import 'nprogress/nprogress.css';
 
 const dark = useDark();
 const router = useRouter();
-const faviconIcon = useFavicon(logoIcon);
 const online = useOnline();
 const keepAliveStore = useKeepAliveStore();
 const { addComponentName } = keepAliveStore;

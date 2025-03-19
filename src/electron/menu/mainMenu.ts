@@ -1,4 +1,6 @@
 import { isMac } from './../utils/index';
+import store from './../stores/index';
+import createLoginWindow from './../windows/loginWindow';
 
 function createMainMenu (mainWindow: Electron.CrossProcessExports.BrowserWindow): Array<(Electron.MenuItemConstructorOptions) | (Electron.MenuItem)> {
   return [
@@ -14,6 +16,17 @@ function createMainMenu (mainWindow: Electron.CrossProcessExports.BrowserWindow)
                 path: '/home'
               }
             })
+          }
+        },
+        {
+          label: '退出登录',
+          click: () => {
+            store.set('user', {
+              account: '',
+              password: ''
+            })
+            mainWindow.close();
+            createLoginWindow();
           }
         }, 
       ]
@@ -58,7 +71,7 @@ function createMainMenu (mainWindow: Electron.CrossProcessExports.BrowserWindow)
           role: 'togglefullscreen'
         },
         {
-          label: '退出',
+          label: '关闭app',
           role: isMac ? 'close' : 'quit'
         }
       ]

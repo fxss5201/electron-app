@@ -2,7 +2,8 @@ import { ipcMain, Menu } from 'electron';
 import createWindow from './createWindow';
 import type { RouterMessage } from './../../types/routerTypes';
 import createMainMenu from './../menu/mainMenu';
-import { addIpcMainHandleFn, addIpcMainOnFn } from './../ipcMain/index.ts';
+import { addIpcMainHandleFn, removeIpcMainHandlerFn, addIpcMainOnFn, removeIpcMainOnFn } from './../ipcMain/index.ts';
+import { resetProgressBar } from '../plugins/progressBar.ts';
 import registryShortcut from './../plugins/registryShortcut';
 import createTray from './../tray';
 
@@ -29,9 +30,16 @@ function createMainWindow () {
     createMainWindow();
   })
 
-  createTray(mainWindow);
+  const tray = createTray(mainWindow);
   addIpcMainHandleFn();
   addIpcMainOnFn(mainWindow);
+
+  mainWindow.on('close', () => {
+    resetProgressBar(mainWindow);
+    removeIpcMainHandlerFn();
+    removeIpcMainOnFn();
+    tray.destroy();
+  })
 
   const mainMenu = createMainMenu(mainWindow);
   Menu.setApplicationMenu(Menu.buildFromTemplate(mainMenu));

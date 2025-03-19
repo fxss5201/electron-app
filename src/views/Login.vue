@@ -2,7 +2,7 @@
   <div class="page-center">
     <div class="logo-page">
       <div class="logo-icon-box">
-        <img class="logo-icon" src="./../assets/icons/icon@32x.png" alt="logo" />
+        <img class="logo-icon" src="/icons/icon@32x.png" alt="logo" />
       </div>
       <el-form
         ref="formRef"

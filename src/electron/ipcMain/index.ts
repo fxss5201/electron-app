@@ -1,2 +1,2 @@
-export * from './handle'
-export * from './on'
+export * from './handle.ts'
+export * from './onAndOff.ts'
