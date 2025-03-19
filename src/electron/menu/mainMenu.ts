@@ -67,6 +67,28 @@ function createMainMenu (mainWindow: Electron.CrossProcessExports.BrowserWindow)
               }
             })
           }
+        },
+        {
+          label: '任务栏图标闪烁',
+          click: () => {
+            mainWindow.webContents.send('router', {
+              type:'replace',
+              router: {
+                path: '/flashFrame'
+              }
+            })
+          }
+        },
+        {
+          label: 'Tray图标闪烁',
+          click: () => {
+            mainWindow.webContents.send('router', {
+              type:'replace',
+              router: {
+                path: '/flashTray'
+              }
+            })
+          } 
         }
       ]
     },

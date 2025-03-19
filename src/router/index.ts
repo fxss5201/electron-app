@@ -47,6 +47,22 @@ export const routes = [
     meta: {
       title: '通知' 
     }
+  },
+  {
+    path: '/flashFrame',
+    name: 'FlashFrame',
+    component: () => import('../views/example/FlashFrame.vue'),
+    meta: {
+      title: '任务栏图标闪烁' 
+    }
+  },
+  {
+    path: '/flashTray',
+    name: 'FlashTray',
+    component: () => import('../views/example/FlashTray.vue'),
+    meta: {
+      title: 'Tray图标闪烁' 
+    }
   }
 ]
 

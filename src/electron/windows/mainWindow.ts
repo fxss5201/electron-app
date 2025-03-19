@@ -32,7 +32,7 @@ function createMainWindow () {
 
   const tray = createTray(mainWindow);
   addIpcMainHandleFn();
-  addIpcMainOnFn(mainWindow);
+  addIpcMainOnFn(mainWindow, tray);
 
   mainWindow.on('close', () => {
     resetProgressBar(mainWindow);

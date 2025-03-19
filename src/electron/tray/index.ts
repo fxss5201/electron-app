@@ -35,5 +35,8 @@ export default function createTray (win: Electron.CrossProcessExports.BrowserWin
   tray.setTitle('electron-app');
   tray.setToolTip('electron-app');
   tray.setContextMenu(trayMenu);
+  tray.on('click', () => {
+    win.show();
+  })
   return tray;
 }
