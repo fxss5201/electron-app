@@ -2,7 +2,7 @@ import { app, BrowserWindow } from 'electron';
 import path from 'node:path';
 import started from 'electron-squirrel-startup';
 import log from 'electron-log/main';
-import updateApp from './electron/plugins/updateApp';
+import updateApp from './electron/functional/updateApp';
 import createLoginWindow from './electron/windows/loginWindow';
 import createMainWindow from './electron/windows/mainWindow';
 import store from './electron/stores';

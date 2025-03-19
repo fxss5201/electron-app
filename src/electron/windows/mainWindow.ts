@@ -3,8 +3,8 @@ import createWindow from './createWindow';
 import type { RouterMessage } from './../../types/routerTypes';
 import createMainMenu from './../menu/mainMenu';
 import { addIpcMainHandleFn, removeIpcMainHandlerFn, addIpcMainOnFn, removeIpcMainOnFn } from './../ipcMain/index.ts';
-import { resetProgressBar } from '../plugins/progressBar.ts';
-import registryShortcut from './../plugins/registryShortcut';
+import { resetProgressBar } from '../functional/progressBar.ts';
+import registryShortcut from '../functional/registryShortcut.ts';
 import createTray from './../tray';
 
 function createMainWindow () {

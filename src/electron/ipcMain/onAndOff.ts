@@ -1,5 +1,5 @@
 import { ipcMain } from 'electron';
-import { startProgressBar, pauseProgressBar, resumeProgressBar, resetProgressBar } from '../plugins/progressBar.ts';
+import { startProgressBar, pauseProgressBar, resumeProgressBar, resetProgressBar } from '../functional/progressBar.ts';
 import { setDarkMode } from './onFn/setDarkMode.ts';
 
 
@@ -7,7 +7,6 @@ export function addIpcMainOnFn (win: Electron.CrossProcessExports.BrowserWindow)
   ipcMain.on('setDarkMode', setDarkMode)
 
   ipcMain.addListener('startProgressBar', () => {
-    console.log(111)
     startProgressBar(win);
   })
   ipcMain.addListener('pauseProgressBar', () => {
