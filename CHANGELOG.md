@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.0.8](https://github.com/fxss5201/electron-app/compare/v0.0.7...v0.0.8) (2025-03-19)
+
+
+### Features
+
+* 调整目录 ([fa2880e](https://github.com/fxss5201/electron-app/commit/fa2880e98879b3bb6b87807e5b476933dc7012ea))
+* 静态资源全部采用 public 下的，修改绑定事件 ([419fdb2](https://github.com/fxss5201/electron-app/commit/419fdb276c4766c95a0ffe64151e12f7238b99a9))
+* 通知 ([a9a2551](https://github.com/fxss5201/electron-app/commit/a9a255142d0b1fda4ad10efc877a25ff69968f0b))
+* 增加任务栏图标闪烁和Tray图标闪烁 ([71c4e9a](https://github.com/fxss5201/electron-app/commit/71c4e9a0fbf832c0b0b945da12fd36952ead1902))
+
 ## [0.0.7](https://github.com/fxss5201/electron-app/compare/v0.0.6...v0.0.7) (2025-03-18)
 
 
