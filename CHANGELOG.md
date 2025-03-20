@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.0.9](https://github.com/fxss5201/electron-app/compare/v0.0.8...v0.0.9) (2025-03-20)
+
+
+### Features
+
+* 更新文案自定义 ([6936a65](https://github.com/fxss5201/electron-app/commit/6936a65c4d630a4d603d42578e7b1f523ce8c21b))
+* 获取资源路径方法提取为公共方法 ([45c2bbd](https://github.com/fxss5201/electron-app/commit/45c2bbd4e1f388599f5b07bbb415989fc961f970))
+* 日志按天划分 ([1485b20](https://github.com/fxss5201/electron-app/commit/1485b205939a0aa30aaf24d2c7a0372827bf8717))
+
 ## [0.0.8](https://github.com/fxss5201/electron-app/compare/v0.0.7...v0.0.8) (2025-03-19)
 
 
