@@ -1,11 +1,8 @@
-import { nativeImage, app } from 'electron';
-import path from 'node:path';
+import { nativeImage } from 'electron';
+import { getFilePath } from './../utils/index';
 
-const iconPatg = app.isPackaged ? path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/icons/icon.png`) : path.join(__dirname, './icons/icon.png');
-const icon = nativeImage.createFromPath(iconPatg);
-
-const blackPatg = app.isPackaged ? path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/icons/black.svg`) : path.join(__dirname, './icons/black.svg');
-const black = nativeImage.createFromPath(blackPatg);
+const icon = nativeImage.createFromPath(getFilePath('icons/icon.png'));
+const black = nativeImage.createFromPath(getFilePath('icons/black.svg'));
 
 let flashTrayIconTimeout: NodeJS.Timeout;
 let flashTrayBlackTimeout: NodeJS.Timeout;

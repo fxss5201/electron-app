@@ -1,6 +1,7 @@
 import { BrowserWindow, app } from 'electron';
 import path from 'node:path';
 import type { BaseWindowConstructorOptions, BrowserWindowConstructorOptions } from 'electron/main';
+import { getFilePath } from './../utils/index'
 
 function createWindow (config: BaseWindowConstructorOptions) {
   const defaultConfig: BrowserWindowConstructorOptions = {
@@ -11,11 +12,11 @@ function createWindow (config: BaseWindowConstructorOptions) {
   }
 
   if (process.platform === 'linux') {
-    defaultConfig.icon = path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/icons/icon.png`)
+    defaultConfig.icon = getFilePath('icons/icon.png')
   }
 
   if (!app.isPackaged) {
-    defaultConfig.icon = path.join(__dirname, './icons/icon.png')
+    defaultConfig.icon = getFilePath('icons/icon.png')
   }
 
   const configs: BrowserWindowConstructorOptions = { ...defaultConfig, ...config  }

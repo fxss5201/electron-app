@@ -1,12 +1,10 @@
-import { Tray, nativeImage, Menu, app } from 'electron';
-import path from 'node:path';
-import { isMac } from './../utils/index';
+import { Tray, nativeImage, Menu } from 'electron';
+import { isMac, getFilePath } from './../utils/index';
 import store from './../stores/index';
 import createLoginWindow from './../windows/loginWindow';
 
 export default function createTray (win: Electron.CrossProcessExports.BrowserWindow): Tray {
-  const iconPatg = app.isPackaged ? path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/icons/icon.png`) : path.join(__dirname, './icons/icon.png');
-  const icon = nativeImage.createFromPath(iconPatg);
+  const icon = nativeImage.createFromPath(getFilePath('icons/icon.png'));
   const tray = new Tray(icon);
   const trayMenu = Menu.buildFromTemplate([
     {
