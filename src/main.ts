@@ -1,5 +1,6 @@
 import { app, BrowserWindow } from 'electron';
 import path from 'node:path';
+import fs from 'node:fs';
 import started from 'electron-squirrel-startup';
 import log from 'electron-log/main';
 import updateApp from './electron/functional/updateApp';
@@ -7,8 +8,16 @@ import createLoginWindow from './electron/windows/loginWindow';
 import createMainWindow from './electron/windows/mainWindow';
 import store from './electron/stores';
 import './electron/stores/addStore';
+import dayjs from 'dayjs';
 
 log.initialize();
+log.transports.file.resolvePathFn = () => {
+  const logDir = path.join(app.getPath('userData'), 'logs');
+  if (!fs.existsSync(logDir)) {
+    fs.mkdirSync(logDir, { recursive: true });
+  }
+  return path.join(logDir, `log-${dayjs().format('YYYY-MM-DD')}.log`);
+};
 log.info('Log from the main process');
 
 updateApp();
@@ -49,6 +58,3 @@ app.on('window-all-closed', () => {
     app.quit();
   }
 });
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and import them here.
